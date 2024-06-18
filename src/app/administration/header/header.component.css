@@ -1,0 +1,182 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url('../../../assets/WhatsApp Image 2024-06-03 at 10.57.40 AM.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 300vh;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  padding: 40px; 
+  margin: auto; 
+}
+
+.container {
+  width: auto;
+  height: 100px;
+  background-image: linear-gradient(to bottom, rgb(21, 202, 21), rgb(9, 122, 11));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  color: #fff;
+  padding: 2rem;
+  box-shadow: 0 0 0.5rem saddlebrown;
+  animation: move 2s ease-in-out 0s 1;
+}
+
+.container__logo {
+  color: #000;
+  font-size: 1.5rem;
+  letter-spacing: 0.5rem;
+  font-weight: 900;
+  text-shadow: 0 0 1px #000;
+  font-variant: small-caps;
+  animation: move 2s ease-in-out 0s 1;
+}
+
+.container__image {
+  width: 100%;
+  height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: move 2s ease-in-out 0s 1;
+}
+.container__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the area without distorting its aspect ratio */
+  display: block; /* Removes default margins/padding */
+  margin: 0 auto; /* Centers the image if it's smaller than its container */
+  padding: 0px; /* Adjusts the top, bottom, and both sides */
+  border: 2px solid #333;
+}
+
+@keyframes move {
+  from {
+    margin-top: 100%;
+  }
+  to {
+    margin-bottom: 0;
+  }
+}
+
+.container__menu {
+  font-size: 1.2rem;
+  animation: fold 1s linear 0s 1;
+}
+
+.container__menu a {
+  text-decoration: none;
+  color: #000;
+  padding: 1rem;
+  border: 1px solid #000;
+  border-radius: 8px;
+  text-shadow: 0 0 1px #000;
+  animation: fold 1s linear 0s 1;
+}
+
+.menubtn {
+  display: none;
+  color: #000;
+  padding: 0.5rem;
+  border: 1px solid #000;
+  border-radius: 8px;
+  font-size: 1.6rem;
+}
+
+.closebtn {
+  display: none;
+  color: #000;
+  padding: 0.5rem;
+  border: 1px solid #000;
+  border-radius: 8px;
+  font-size: 1.6rem;
+}
+
+@keyframes fold {
+  from {
+    transform: skew(10deg);
+    color: green;
+    background-color: #000;
+  }
+  to {
+    transform: skew(160deg);
+  }
+}
+
+@media (max-width: 618px) {
+  .container__menu {
+    display: none;
+  }
+  .menubtn {
+    display: block;
+  }
+}
+
+@media (min-width: 620px) {
+  .menubtn {
+    display: none;
+  }
+}
+.login-signup-form {
+  position: fixed;
+  top: 25%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  background-color: rgb(97, 174, 184);
+  padding: 30px;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(101, 159, 43, 0.2);
+  z-index: 9999;
+}
+
+.login-signup-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-signup-form input[type=text], .login-signup-form input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #28ba18;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.login-signup-form .clearfix {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.login-signup-form .cancelbtn, .login-signup-form .loginbtn, .login-signup-form .signupbtn {
+  width: 40%;
+  padding: 10px 18px;
+  margin: 0;
+}
+
+.login-signup-form .cancelbtn {
+  background-color: #f44336;
+  color: white;
+}
+
+.login-signup-form .loginbtn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.login-signup-form .signupbtn {
+  background-color: #2196F3;
+  color: white;
+}

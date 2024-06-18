@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="container__logo">Logo</div>
+  <div class="container__menu">
+    <a href="#" (click)="navigateToPage('farmers')">Sellers</a>
+    <a href="#" (click)="navigateToPage('transport')">Transport</a>
+    <a href="#" (click)="navigateToPage('buyers')">Buyers</a>
+    <a href="#" (click)="navigateToPage('support')">Support</a>
+    <a (click)="toggleLoginSignupForm()">Signin</a>
+  </div>
+  <span class="menubtn"><i class="fa-solid fa-bars"></i></span>
+  <span class="closebtn"><i class="fa-solid fa-xmark"></i></span>
+</div>
+<div class="container__image">
+  <img src="../../../assets/WhatsApp Image 2024-06-03 at 10.57.40 AM.jpeg" alt="Image" />
+</div>
+
+<div class="login-signup-form" *ngIf="isLoginSignupFormVisible" [@slideIn]>
+  <form [formGroup]="loginSignupForm">
+    <h2>{{ isSignupForm ? 'Signup' : 'Login' }}</h2>
+
+    <input type="text" placeholder="Email" formControlName="email" required>
+    <input type="password" placeholder="Password" formControlName="password" required>
+
+    <div *ngIf="!isSignupForm">
+      <p>Don't have an account? <a (click)="toggleSignupForm()">Signup</a></p>
+    </div>
+
+    <input type="text" placeholder="Full Name" formControlName="fullname" *ngIf="isSignupForm" required>
+    <input type="text" placeholder="Phone Number" formControlName="phone" *ngIf="isSignupForm" required>
+    <input type="text" placeholder="Address" formControlName="address" *ngIf="isSignupForm" required>
+    <label *ngIf="isSignupForm">
+      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+    </label>
+    <p *ngIf="isSignupForm">By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+    <div class="clearfix">
+      <button type="button" class="cancelbtn" (click)="onCancel()">Cancel</button>
+      <button type="submit" [class.loginbtn]="!isSignupForm" [class.signupbtn]="isSignupForm" (click)="onSubmit()">
+        {{ isSignupForm ? 'Sign Up' : 'Login' }}
+      </button>
+    </div>
+  </form>
+</div>
