@@ -5,6 +5,10 @@ import { AdministrationRoutingModule } from './administration/administration-rou
 
 const routes: Routes = [
   { path: 'admin', component: AdministrationComponent, loadChildren: () => import('./administration/administration.module').then(m => m.AdministrationModule) },
+  { path: 'sellers', loadChildren: () => import('./sellers/sellers.module').then(m => m.SellersModule) },
+  { path: 'transport', loadChildren: () => import('./transport/transport.module').then(m => m.TransportModule) },
+  { path: 'buyers', loadChildren: () => import('./buyers/buyers.module').then(m => m.BuyersModule) },
+  { path: 'support', loadChildren: () => import('./support/support.module').then(m => m.SupportModule) },
   { path: '', redirectTo: '/admin', pathMatch: 'full' }
 ];
 
