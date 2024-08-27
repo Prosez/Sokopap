@@ -1,0 +1,61 @@
+<div class="login-signup-form" [@slideIn]>
+    <form [formGroup]="loginSignupForm" (ngSubmit)="onSubmit()">
+      <h2>{{ isSignupForm ? 'Signup' : 'Login' }}</h2>
+  
+      <div class="form-group">
+        <input type="text" placeholder="Email" formControlName="email" required>
+        <div *ngIf="loginSignupForm.get('email').invalid && loginSignupForm.get('email').touched" class="text-danger">
+          {{ getValidationMessage('email') }}
+        </div>
+      </div>
+  
+      <div class="form-group position-relative">
+        <div class="input-container">
+          <input type="{{ hidePassword ? 'password' : 'text' }}" placeholder="Password" formControlName="password" required id="password" class="password-input">
+          <i class="fas" [ngClass]="{ 'fa-eye': hidePassword, 'fa-eye-slash': !hidePassword }" id="togglePassword" (click)="togglePasswordVisibility()"></i>
+        </div>
+        <div *ngIf="loginSignupForm.get('password').invalid && loginSignupForm.get('password').touched" class="text-danger">
+          {{ getValidationMessage('password') }}
+        </div>
+      </div>
+      
+      <p *ngIf="!isSignupForm">Don't have an account? <a (click)="toggleSignupForm()">Signup</a></p>
+  
+      <div *ngIf="isSignupForm">
+        <div class="form-group">
+          <input type="text" placeholder="Full Name" formControlName="fullname" required>
+          <div *ngIf="loginSignupForm.get('fullname').invalid && loginSignupForm.get('fullname').touched" class="text-danger">
+            {{ getValidationMessage('fullname') }}
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <input type="text" placeholder="Phone Number" formControlName="phone">
+          <div *ngIf="loginSignupForm.get('phone').invalid && loginSignupForm.get('phone').touched" class="text-danger">
+            {{ getValidationMessage('phone') }}
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <input type="text" placeholder="Address" formControlName="address" required>
+          <div *ngIf="loginSignupForm.get('address').invalid && loginSignupForm.get('address').touched" class="text-danger">
+            {{ getValidationMessage('address') }}
+          </div>
+        </div>
+  
+        <label>
+          <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+        </label>
+        <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+        <p>Already have an account? <a (click)="toggleSignupForm()">Login</a></p>
+      </div>
+  
+      <div class="clearfix">
+        <button type="button" class="cancelbtn" (click)="onCancel()">Cancel</button>
+        <button type="submit" [class.loginbtn]="!isSignupForm" [class.signupbtn]="isSignupForm" (click)="onSubmit()">
+          {{ isSignupForm ? 'Submit' : 'Submit' }}
+        </button>
+      </div>
+    </form>
+  </div>
+  

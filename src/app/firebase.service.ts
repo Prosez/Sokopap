@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { firebaseConfig } from './firebase-config'; // Adjust the path as per your project structure
+import { firebaseConfig } from './firebase-config'; 
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { getAnalytics } from 'firebase/analytics';

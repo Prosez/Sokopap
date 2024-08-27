@@ -1,0 +1,461 @@
+/* Ensure box-sizing applies to all elements */
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f1f1f1;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Center website */
+.main {
+  max-width: 1000px;
+  width: 100%;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+/* Style for h2 */
+h2 {
+  font-size: 30px; /* Adjust the font size as needed */
+  text-align: center; /* Center-align the text */
+  color: #0c0b0b; /* Set the text color */
+  margin-bottom: 20px; /* Add space below the heading */
+}
+
+.form {
+  display: flex;
+  justify-content: center; /* Centers the form horizontally */
+  align-items: center; /* Centers the form vertically */
+}
+
+.search-box {
+  background-color: #2ac12a;
+  height: 50px;
+  width: 25%;
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+  padding: 0px 5px 0px 20px;
+  border-radius: 30px;
+}
+
+.search-box {
+  font-size: 1.7rem;
+  color: #030606;
+  margin: 0px 10px;
+  border-radius: 30px;
+}
+
+.search-box .search-input {
+  height: 40px;
+  color: #030606;
+  border: none;
+  width: 100%;
+  padding: 0px 10px;
+  outline: none;
+}
+
+.search-box .search-btn {
+  width: 220px;
+  height: 40px;
+  border-radius: 30px;
+  background-color: white;
+  border: none;
+  color: #070202;
+  outline: none;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+.search-box .search-btn:hover {
+  background-color: #23ef10;
+  transition: all ease 0.3s;
+}
+
+/* Style for #myBtnContainer */
+#myBtnContainer {
+  text-align: center; /* Center-align the buttons */
+  margin-bottom: 20px; /* Add space below the button container */
+}
+
+#myBtnContainer .btn {
+  display: inline-block; /* Display buttons inline */
+  padding: 10px 20px; /* Button padding */
+  margin: 10px; /* Space between buttons */
+  font-size: 20px; /* Font size */
+  border-radius: 30px;
+  cursor: pointer; /* Pointer cursor on hover */
+  background-color: white; /* Background color */
+  color: #090909; /* Text color */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
+}
+
+#myBtnContainer .btn:hover {
+  background-color: #3bc01e; /* Background color on hover */
+}
+
+#myBtnContainer .btn.active {
+  background-color: #100d0d; /* Active background color */
+  color: white; /* Active text color */
+}
+
+.row {
+  margin: 8px -16px;
+  background-color: white; /* Background color for the space between columns */
+  padding: 8px; /* Padding between columns */
+}
+
+/* Create three equal columns that float next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  display: none; /* Hide columns by default */
+  position: relative; /* For absolute positioning of images inside */
+  padding: 10px; /* Padding inside each column */
+  background-color: white; /* Background color of each column */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better separation */
+}
+
+/* Clear floats after rows */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: white;
+  padding: 20px;
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: rgb(206, 209, 208);
+  cursor: pointer;
+}
+
+/* Add a grey background color on mouse-over */
+.btn:hover {
+  background-color: #ddd;
+}
+
+/* Add a dark background color to the active button */
+.btn.active {
+  background-color: #412e2e;
+  color: white;
+}
+
+/* Image styles */
+.column img {
+  width: 100%;
+  height: 320px; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure images cover the area without stretching */
+  display: block; /* Remove bottom space */
+  border: 8px solid #c3b7b7; /* Add border here */
+  border-radius: 10px; /* Optional: Rounded corners */
+  z-index: 1; /* Set z-index lower than the heart icon */
+}
+
+.heart {
+  position: absolute;
+  top: 10px; /* Adjust top position to your preference */
+  right: 10px; /* Adjust right position to your preference */
+  z-index: 2;
+}
+
+.heart-icon {
+  font-size: 24px;
+  color: rgb(67, 188, 80);
+  transition: color 0.3s ease-in-out;
+  pointer-events: auto;
+}
+
+.column:hover .heart-icon {
+  color: rgb(226, 45, 45);
+}
+
+
+.column img:hover {
+  transform: translateY(-10px); /* Move the image up by 10px on hover */
+  transition: transform 0.3s ease-in-out; /* Smooth transition */
+  z-index: 1; /* Set z-index lower than the heart icon */
+}
+
+.column .quantity {
+  display: block; /* Ensure the quantity is displayed as a block element */
+  color: #030606;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  margin-top: 10px; /* Add some spacing above the quantity */
+  font-weight: 1000;
+}
+
+.column .price {
+  display: block; /* Ensure the price is displayed as a block element */
+  font-size: 1.4rem;
+  font-weight: 1000;
+  color: #070202;
+  margin-top: 5px; /* Add some spacing above the price */
+}
+
+.column .cart-btn {
+  display: flex; /* Use flexbox to align content within the button */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  width: 20%; /* Adjust width based on design */
+  height: 40px; /* Set the height */
+  background-color: #c3b7b7;
+  color: #0d0e0d;
+  margin-top: 15px; /* Add some spacing above the button */
+  text-decoration: none; /* Remove underline */
+  border-radius: 5px; /* Optional: Add some border radius */
+  font-weight: 500;
+}
+
+.column .cart-btn:hover {
+  background-color: #23ef10; /* Change background on hover */
+  color: white; /* Change text color on hover */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+#clients{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f7f8;
+  padding: 80px 0px;
+  margin: 40px 0px;
+  border-top: 5px solid rgb(115, 158, 168);
+  border-bottom: 5px solid rgb(115, 158, 168);
+}
+.client-heading h3{
+  font-size: 1.56rem;
+  color: #202020;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.client-box-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin-top: 40px;
+}
+
+.client-box{
+  background-color: #ffffff;
+  padding: 30px 20px;
+  border: 1px solid #f1f1f1;
+  box-shadow: 2px 2px 50px rgba(0,0,0,0.05);
+  border-radius: 0px 30px 0px 30px;
+}
+.client-profile{
+  display: flex;
+  align-items: center;
+}
+
+.client-profile img{
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
+.profile-text{
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.profile-text strong{
+  color: #393939;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.profile-text span{
+  color: #7b7979;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.rating{
+  display: flex;
+  margin: 10px 10px;
+}
+
+.rating i{
+  color: #fdcc0d;
+}
+
+.client-box{
+  color: rgba(167, 171, 167, 0.8)77;
+}
+
+#download-app {
+  max-width: 1150px;
+  width: 100%;
+  background-color: #bcecc5;
+  height: 400px;
+  margin: 225px auto;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.app-img {
+  width: 275px;
+  height: 550px;
+  border: 4px solid #393939;
+  border-radius: 20px;
+  overflow: hidden; /* Ensures that the image does not overflow the container */
+}
+
+.app-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the entire container */
+  border-radius: 20px; /* Apply the same border radius to the image */
+}
+
+.download-app-text{
+  max-width: 400px;
+}
+
+.download-app-text strong{
+  color: #393939;
+  font-size: 1.5rem;
+}
+
+.download-app-text p{
+  color: #0f0f0e;
+  margin: 15px 0px;
+}
+
+.download-btns{
+  display: flex;
+}
+
+.download-btns a{
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.download-btns a img{
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+footer {
+  background-color: #1b1d1f;
+  padding: 50px 0;
+  border-top: 5px solid #12c032;
+  width: 100%; /* Ensures the footer covers the entire width */
+  position: relative;
+  bottom: 0;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-logo a {
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.footer-social {
+  display: flex;
+  margin-top: 10px;
+}
+
+.footer-social a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  border: 1px solid #ffffff15;
+  font-size: 0.9rem;
+  margin-right: 10px; /* Adds space between icons */
+  transition: 0.3s ease, color 0.3s ease;
+  background-color: #12c032; /* Green hover color */
+
+}
+
+.footer-social a:last-child {
+  margin-right: 0;
+}
+
+.footer-social a:hover {
+  background-color: #12c032; /* Green hover color */
+  color: #ffffff;
+}
+
+.footer-links strong {
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.footer-links ul {
+  margin-top: 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-links ul li a {
+  color: #ffffff;
+  opacity: 0.5;
+  margin: 4px 0;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transition: opacity 0.3s ease;
+}
+
+.footer-links li a:hover {
+  opacity: 1;
+  background-color: #12c032;
+}

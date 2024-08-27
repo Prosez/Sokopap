@@ -1,0 +1,76 @@
+/* Login and signup form styling */
+.login-signup-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    background-color: rgb(44, 183, 90);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+  }
+  
+  .login-signup-form h2 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .login-signup-form input[type=text],
+  .login-signup-form input[type=password] {
+    width: calc(100% - 24px); /* Adjusted to prevent overflow */
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #28ba18;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .login-signup-form .clearfix {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .login-signup-form .cancelbtn,
+  .login-signup-form .loginbtn,
+  .login-signup-form .signupbtn {
+    width: 40%;
+    padding: 8px 15px;
+    margin: 0;
+  }
+  
+  .login-signup-form .cancelbtn {
+    background-color: #f44336;
+    color: white;
+    border-radius: 15px;
+  }
+  
+  .login-signup-form .loginbtn {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 15px;
+  }
+  
+  .login-signup-form .signupbtn {
+    background-color: #2196F3;
+    color: white;
+    border-radius: 15px;
+  }
+  
+  /* Header component styling */
+  .text-danger {
+    color: red;
+    font-size: 0.865em;
+  }
+  
+  .form-group {
+    margin-bottom: 1em;
+  }
+  
+  .form-control.ng-touched.ng-invalid {
+    border-color: red;
+  }
+  

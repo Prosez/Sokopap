@@ -1,66 +1,12 @@
 <div class="container">
   <div class="container__logo">Logo</div>
   <div class="container__menu">
+    <!-- Keep only the navigation-related elements -->
     <a (click)="toggleLoginSignupForm()">Signin</a>
+    <a (click)="navigateToHome()">Home</a>
+    <a (click)="toggleAboutForm()">About</a>
+    <a (click)="toggleContactForm()">Contact</a>
   </div>
   <span class="menubtn"><i class="fa-solid fa-bars"></i></span>
   <span class="closebtn"><i class="fa-solid fa-xmark"></i></span>
 </div>
-<div class="container__image">
-  <img src="../../../assets/WhatsApp Image 2024-06-03 at 10.57.40 AM.jpeg" alt="Cool Image" />
-</div>
-
-<div class="login-signup-form" *ngIf="isLoginSignupFormVisible" [@slideIn]>
-  <form [formGroup]="loginSignupForm">
-    <h2>{{ isSignupForm ? 'Signup' : 'Login' }}</h2>
-
-    <div class="form-group">
-      <input type="text" placeholder="Email" formControlName="email" required>
-      <div *ngIf="loginSignupForm.get('email').invalid && loginSignupForm.get('email').touched" class="text-danger">
-        {{ getValidationMessage('email') }}
-      </div>
-    </div>
-
-    <div class="form-group">
-      <input type="password" placeholder="Password" formControlName="password" required>
-      <div *ngIf="loginSignupForm.get('password').invalid && loginSignupForm.get('password').touched" class="text-danger">
-        {{ getValidationMessage('password') }}
-      </div>
-    </div>
-
-    <div *ngIf="isSignupForm">
-      <div class="form-group">
-        <input type="text" placeholder="Full Name" formControlName="fullname" required>
-        <div *ngIf="loginSignupForm.get('fullname').invalid && loginSignupForm.get('fullname').touched" class="text-danger">
-          {{ getValidationMessage('fullname') }}
-        </div>
-      </div>
-
-      <div class="form-group">
-        <input type="text" placeholder="Phone Number" formControlName="phone" required>
-        <div *ngIf="loginSignupForm.get('phone').invalid && loginSignupForm.get('phone').touched" class="text-danger">
-          {{ getValidationMessage('phone') }}
-        </div>
-      </div>
-
-      <div class="form-group">
-        <input type="text" placeholder="Address" formControlName="address" required>
-        <div *ngIf="loginSignupForm.get('address').invalid && loginSignupForm.get('address').touched" class="text-danger">
-          {{ getValidationMessage('address') }}
-        </div>
-      </div>
-
-      <label>
-        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-      </label>
-      <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-    </div>
-
-    <div class="clearfix">
-      <button type="button" class="cancelbtn" (click)="onCancel()">Cancel</button>
-      <button type="submit" [class.loginbtn]="!isSignupForm" [class.signupbtn]="isSignupForm" (click)="onSubmit()">
-        {{ isSignupForm ? 'Sign Up' : 'Login' }}
-      </button>
-    </div>
-
-    
