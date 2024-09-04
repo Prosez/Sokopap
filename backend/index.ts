@@ -1,9 +1,11 @@
-import express, { Request, Response, NextFunction } from 'express';
-import dotenv from 'dotenv';
-import bcrypt from 'bcryptjs';
-import jwt, { JwtPayload } from 'jsonwebtoken';
+import * as express from 'express';
+import { Request, Response } from 'express';
+import * as dotenv from 'dotenv';
+import * as bcrypt from 'bcryptjs';
+import * as jwt from 'jsonwebtoken';
 import sequelize from './database';
 import productRoutes from './routes/productRoutes';
+import { NextFunction } from 'express';
 
 dotenv.config();
 

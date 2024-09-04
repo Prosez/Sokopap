@@ -2,8 +2,9 @@ import { Component, OnInit, Inject, PLATFORM_ID, AfterViewInit } from '@angular/
 import { isPlatformBrowser } from '@angular/common';
 import { Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { HttpClient } from '@angular/common/http';
+
 
 
 @Component({
@@ -28,8 +29,7 @@ export class SigninComponent implements OnInit, AfterViewInit {
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private renderer: Renderer2,
-    private formBuilder: FormBuilder,
-    private afAuth: AngularFireAuth
+    private formBuilder: FormBuilder, private http: HttpClient
   ) {
     this.loginSignupForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -106,9 +106,12 @@ export class SigninComponent implements OnInit, AfterViewInit {
   async login() {
     const { email, password } = this.loginSignupForm.value;
     try {
-      await this.afAuth.signInWithEmailAndPassword(email, password);
-      console.log('Login successful');
-      this.onCancel();
+      const response = await this.http.post<{ token: string, message: string }>(
+        'http://localhost:3000/api/login', 
+        { email, password }
+      ).toPromise();
+      console.log(response.message);
+      // Store token and handle login success
     } catch (error) {
       console.error('Error during login:', error);
     }
@@ -117,9 +120,12 @@ export class SigninComponent implements OnInit, AfterViewInit {
   async signup() {
     const { email, password, fullname, phone, address } = this.loginSignupForm.value;
     try {
-      await this.afAuth.createUserWithEmailAndPassword(email, password);
-      console.log('Signup successful');
-      this.onCancel();
+      const response = await this.http.post<{ message: string }>(
+        'http://localhost:3000/api/signup', 
+        { email, password, fullname, phone, address }
+      ).toPromise();
+      console.log(response.message);
+      // Handle signup success
     } catch (error) {
       console.error('Error during signup:', error);
     }

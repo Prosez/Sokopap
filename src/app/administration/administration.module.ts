@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule } from '@angular/common/http';
 import { SigninComponent } from './signin/signin.component';
 
 
@@ -27,7 +28,8 @@ import { SigninComponent } from './signin/signin.component';
     FormsModule,
     ReactiveFormsModule,
     AdministrationRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
 
   ]
 })

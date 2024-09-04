@@ -1,24 +1,21 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "compileOnSave": false,
+   "$schema": "https://json.schemastore.org/tsconfig",  // Correct schema URL
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",
-    "skipLibCheck": true,
-    "esModuleInterop": true,
+    "baseUrl": "./",
+    "outDir": "./dist",
     "sourceMap": true,
     "declaration": false,
+    "downlevelIteration": true,
     "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "module": "es2020",
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "ES2022",
-    "module": "ES2022",
-    "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    "target": "es2020",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2020", "dom"]
   },
   "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false
+    "enableIvy": true
   }
 }

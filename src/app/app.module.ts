@@ -9,10 +9,8 @@ import { BuyersModule } from './buyers/buyers.module';
 import { SellersModule } from './sellers/sellers.module';
 import { SupportModule } from './support/support.module';
 import { TransportModule } from './transport/transport.module';
+import { HttpClientModule } from '@angular/common/http';  // Import this module
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 
 
@@ -30,8 +28,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     SellersModule,
     SupportModule,
     TransportModule,
-    AngularFireAuthModule,
-    AngularFireDatabaseModule
+    HttpClientModule
+    
 
   ],
   providers: [

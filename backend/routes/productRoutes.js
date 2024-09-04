@@ -1,11 +1,8 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
-const productController_1 = require("../controllers/productController");
-const router = express_1.default.Router();
+var express_1 = require("express");
+var productController_1 = require("../controllers/productController");
+var router = express_1.default.Router();
 // Define routes and link them to controller functions
 router.get('/products', productController_1.getProducts);
 exports.default = router;
